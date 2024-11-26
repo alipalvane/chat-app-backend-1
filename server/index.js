@@ -6,7 +6,8 @@ import mongoose from "mongoose";
 import authRoutes from "./routes/AuthRoutes.js";
 import contactRoutes from "./routes/ContactRoutes.js";
 import setupSocket from "./socket.js";
-import MessagesRoutes from "./routes/MessagesRoutes.js";
+import messagesRoutes from "./routes/MessagesRoutes.js";
+import channelRoutes from "./routes/ChannelRoutes.js";
 
 dotenv.config();
 
@@ -28,7 +29,8 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactRoutes);
-app.use("/api/messages", MessagesRoutes);
+app.use("/api/messages", messagesRoutes);
+app.use("/api/channel", channelRoutes);
 
 const server = app.listen(port, () =>
   console.log(`server is running on port ${port}`)
